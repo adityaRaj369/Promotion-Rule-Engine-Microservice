@@ -21,7 +21,7 @@ This microservice picks the best in-game promotion for a player based on rules d
 ## Running the Application
 Start the server:
 ```bash
-npm start
+node src/server.js
 ```
 The server runs on `http://localhost:3000` by default. To use a different port, set the `PORT` environment variable:
 ```bash
