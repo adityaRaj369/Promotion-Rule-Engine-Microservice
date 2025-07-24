@@ -1,0 +1,47 @@
+rules:
+  - id: PROMO_001
+    priority: 1
+    weight: 0.7
+    timeWindow:
+      startHour: 0
+      endHour: 23
+    conditions:
+      level: { min: 10, max: 20 }
+      spendTier: [ "GOLD", "PLATINUM" ]
+      country: [ "US", "CA" ]
+      daysSinceLastPurchase: { max: 30 }
+    promotion:
+      id: BONUS_10
+      type: "bonus"
+      value: 10
+      description: "10% bonus on next purchase"
+    abBucket: [ "A" ]
+  - id: PROMO_002
+    priority: 2
+    weight: 0.2
+    timeWindow:
+      startHour: 8
+      endHour: 20
+    conditions:
+      level: { min: 5 }
+      country: [ "UK", "AU" ]
+    promotion:
+      id: DISCOUNT_5
+      type: "discount"
+      value: 5
+      description: "5% discount on next purchase"
+    abBucket: [ "B" ]
+  - id: PROMO_003
+    priority: 3
+    weight: 0.1
+    timeWindow:
+      startHour: 0
+      endHour: 23
+    conditions:
+      spendTier: [ "BRONZE" ]
+    promotion:
+      id: FREESPIN_3
+      type: "freespin"
+      value: 3
+      description: "3 free spins"
+    abBucket: [ "A", "B" ]

@@ -1,0 +1,76 @@
+{
+  "info": {
+    "name": "Promotion Rule Engine",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Evaluate Promotion (Bucket A)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"userId\": \"123\", \"level\": 15, \"spendTier\": \"GOLD\", \"country\": \"US\", \"daysSinceLastPurchase\": 10}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/promotion",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["promotion"]
+        }
+      }
+    },
+    {
+      "name": "Evaluate Promotion (Bucket B)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"userId\": \"124\", \"level\": 7, \"country\": \"UK\"}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/promotion",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["promotion"]
+        }
+      }
+    },
+    {
+      "name": "Get Metrics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/metrics",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["metrics"]
+        }
+      }
+    },
+    {
+      "name": "Reload Rules",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/reload-rules",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["reload-rules"]
+        }
+      }
+    }
+  ]
+}
